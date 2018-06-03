@@ -19,6 +19,8 @@ let roundScores = 0;
 
 let activePlayer = 0;
 
+let gamePlay = true;
+
 init();
  
 
@@ -27,6 +29,8 @@ init();
 
 document.querySelector(".btn-roll").addEventListener("click",function() {
 	/* Act on the event */
+	if(gamePlay){
+
 	//random number
 	let dice = Math.floor(Math.random() * 6) + 1;
     //display the result
@@ -50,7 +54,7 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
 
 
     }
-
+ }
 
 
 });
@@ -60,6 +64,7 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
 
 document.querySelector(".btn-hold").addEventListener("click",function() {
 	/* Act on the event */
+	if(gamePlay){
 	//add current score to global score
 	scores[activePlayer] += roundScores;
 
@@ -77,14 +82,15 @@ document.querySelector(".btn-hold").addEventListener("click",function() {
 		document.querySelector(".dice").style.display = "none";
 		document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
 		document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+		gamePlay = false;
 
 
 	}else{
 		nextPlayer();
 
+		}
+
 	}
-
-
 
 });
 
@@ -133,6 +139,8 @@ function init(){
 
 
 }
+
+//state variable
 
 //built in Math function to get anumber between one and six
 
