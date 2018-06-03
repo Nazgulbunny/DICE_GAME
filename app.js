@@ -50,7 +50,52 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
 
     }else{
     	//next player ternary operator
-    	activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    	nextPlayer();
+
+
+
+    }
+
+
+
+});
+
+
+//button hold event listener
+
+document.querySelector(".btn-hold").addEventListener("click",function() {
+	/* Act on the event */
+	//add current score to global score
+	scores[activePlayer] += roundScores;
+
+
+
+
+	//update the UI
+	document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+
+
+
+	//check if the player won the game
+	if(scores[activePlayer] >= 15){
+		document.querySelector("#name-" + activePlayer).textContent = " Congraz you win!"
+		document.querySelector(".dice").style.display = "none";
+		document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+		document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+
+
+	}else{
+		nextPlayer();
+
+	}
+
+
+
+});
+
+
+function nextPlayer(){
+	activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     	roundScores = 0;
 
     	document.getElementById("current-0").textContent = "0";
@@ -64,15 +109,9 @@ document.querySelector(".btn-roll").addEventListener("click",function() {
 
 
 
-    }
 
 
-
-});
-
-
-
-
+}
 
 //built in Math function to get anumber between one and six
 
