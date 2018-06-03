@@ -9,3 +9,13 @@ GAME RULES:
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
 
+
+HOW TO START THE GAME
+
+- Download the Repo
+
+- Navigate in the project folder
+
+- Open the index.html with any browser
+
+- Start to play!
