@@ -9,6 +9,16 @@ GAME RULES:
 
 */
 
-const scores =[0,0];
+//Variables
+const scores,roundScores,activePlayer,dice;
 
-const roundScores = 0;
+scores =[0,0];
+
+roundScores = 0;
+
+activePlayer = 0;
+
+//built in Math function to get anumber between one and six
+
+dice = Math.floor(Math.random() * 6) + 1; 
+
