@@ -16,7 +16,7 @@ let scores =[0,0];
 
 let roundScores = 0;
 
-let activePlayer = 0;
+let activePlayer = 1;
 
 //built in Math function to get anumber between one and six
 
@@ -24,6 +24,7 @@ let dice = Math.floor(Math.random() * 6) + 1;
 console.log(dice);
 
 //query selector to put the dice roll in the right place
-document.querySelector("#current" + activePlayer).textContent = dice; 
+document.querySelector("#current-" + activePlayer).textContent = dice; 
+
 
 
