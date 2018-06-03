@@ -12,22 +12,17 @@ GAME RULES:
 //Variables
 //const scores,roundScores,activePlayer,dice;
 
+
 let scores =[0,0];
 
 let roundScores = 0;
 
 let activePlayer = 0;
 
+init();
  
 
-//To not show the dice before the game starts
-document.querySelector(".dice").style.display = "none";
 
-//Get element by ID to set the starting score to Zero
-document.getElementById("score-0").textContent = "0";
-document.getElementById("score-1").textContent = "0";
-document.getElementById("current-0").textContent = "0";
-document.getElementById("current-0").textContent = "0";
 
 
 document.querySelector(".btn-roll").addEventListener("click",function() {
@@ -78,7 +73,7 @@ document.querySelector(".btn-hold").addEventListener("click",function() {
 
 	//check if the player won the game
 	if(scores[activePlayer] >= 15){
-		document.querySelector("#name-" + activePlayer).textContent = " Congraz you win!"
+		document.querySelector("#name-" + activePlayer).textContent = " Winner!"
 		document.querySelector(".dice").style.display = "none";
 		document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
 		document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
@@ -106,9 +101,35 @@ function nextPlayer(){
     	document.querySelector(".player-1-panel").classList.toggle("active");
 
     	document.querySelector(".dice").style.display = "none";
+}
+
+document.querySelector(".btn-new").addEventListener("click",init);
 
 
 
+//function to initializing  the game
+function init(){
+	scores=[0, 0];
+	activePlayer = 0;
+	roundScores = 0;
+
+	//To not show the dice before the game starts
+    document.querySelector(".dice").style.display = "none";
+
+	//Get element by ID to set the starting score to Zero
+	document.getElementById("score-0").textContent = "0";
+	document.getElementById("score-1").textContent = "0";
+	document.getElementById("current-0").textContent = "0";
+	document.getElementById("current-0").textContent = "0";
+
+	document.getElementById("name-0").textContent = " Player 1";
+	document.getElementById("name-1").textContent = " Player 2";
+
+	document.querySelector(".player-0-panel").classList.remove("winner");
+	document.querySelector(".player-1-panel").classList.remove("winner");
+	document.querySelector(".player-0-panel").classList.remove("active");
+	document.querySelector(".player-1-panel").classList.remove("active");
+	document.querySelector(".player-0-panel").classList.add("active");
 
 
 }
