@@ -10,15 +10,20 @@ GAME RULES:
 */
 
 //Variables
-const scores,roundScores,activePlayer,dice;
+//const scores,roundScores,activePlayer,dice;
 
-scores =[0,0];
+let scores =[0,0];
 
-roundScores = 0;
+let roundScores = 0;
 
-activePlayer = 0;
+let activePlayer = 0;
 
 //built in Math function to get anumber between one and six
 
-dice = Math.floor(Math.random() * 6) + 1; 
+let dice = Math.floor(Math.random() * 6) + 1;
+console.log(dice);
+
+//query selector to put the dice roll in the right place
+document.querySelector("#current" + activePlayer).textContent = dice; 
+
 
