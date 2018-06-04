@@ -1,7 +1,4 @@
-
-
 //Variables
-
 let scores, roundScores, activePlayer, gamePlay, lastDice;
 
 init();
@@ -32,8 +29,8 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
 
 
         }*/
-         //update the round score if the rolled number is not a 1
-                if (dice1 !== 1 && dice2 !== 1) {
+        //update the round score if the rolled number is not a 1
+        if (dice1 !== 1 && dice2 !== 1) {
             //Add score
             roundScores += dice1 + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScores;
@@ -41,7 +38,7 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
             //Next player
             nextPlayer();
         }
-    }    
+    }
 });
 
 
@@ -62,13 +59,13 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
         let input = document.querySelector(".final-score").value;
         let winningScore;
 
-         //all the values that are Undefined,0,null or "" are coerced to false
-         //anything else is coerced to true
-         if (input) {
-         winningScore = input;
-         }else{
-         	winningScore= 100;
-         }
+        //all the values that are Undefined,0,null or "" are coerced to false
+        //anything else is coerced to true
+        if (input) {
+            winningScore = input;
+        } else {
+            winningScore = 100;
+        }
 
 
 
