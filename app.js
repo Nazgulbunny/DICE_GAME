@@ -8,7 +8,7 @@ Change the game to follow these rules:
 
 //Variables
 
-let scores, roundScores, activePlayer, gamePlay;
+let scores, roundScores, activePlayer, gamePlay, lastDice;
 
 init();
 
@@ -27,25 +27,30 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
         diceDom.src = "dice-" + dice + ".png";
 
 
-        //update the round score if the rolled number is not a 1
+        //player looses his ENTIRE score when he rolls two 6 in a row
+        if(dice===6 && lastDice ===6){
+        	roundScores[activePlayer] = 0;
+        	document.querySelector("#score-" + activePlayer).textContent = 0;
+        	nextPlayer();
 
+
+        }
+         //update the round score if the rolled number is not a 1
         if (dice !== 1) {
             //add score
             roundScores += dice;
             document.querySelector("#current-" + activePlayer).textContent = roundScores;
 
 
-        } else {
+        }else {
             //next player ternary operator
             nextPlayer();
-
-
-
         }
-    }
 
+        lastDice = dice;
 
-});
+      }
+    });
 
 
 //button hold event listener
